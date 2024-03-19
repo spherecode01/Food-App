@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import User from "../models/user";
 
-/*const getCurrentUser = async (req: Request, res: Response) => {
+const getCurrentUser = async (req: Request, res: Response) => {
   try {
     const currentUser = await User.findOne({ _id: req.userId });
     if (!currentUser) {
@@ -13,7 +13,7 @@ import User from "../models/user";
     console.log(error);
     return res.status(500).json({ message: "Something went wrong" });
   }
-};*/
+};
 
 const createCurrentUser = async (req: Request, res: Response) => {
   try {
@@ -34,10 +34,10 @@ const createCurrentUser = async (req: Request, res: Response) => {
   }
 };
 
-/*const updateCurrentUser = async (req: Request, res: Response) => {
+const updateCurrentUser = async (req: Request, res: Response) => {
   try {
     const { name, addressLine1, country, city } = req.body;
-   // const user = await User.findById(req.userId);
+    const user = await User.findById(req.userId);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -55,10 +55,10 @@ const createCurrentUser = async (req: Request, res: Response) => {
     console.log(error);
     res.status(500).json({ message: "Error updating user" });
   }
-};*/
+};
 
 export default {
-  //getCurrentUser,
+  getCurrentUser,
   createCurrentUser,
-  //updateCurrentUser,
+  updateCurrentUser,
 };
