@@ -1,4 +1,3 @@
-
 import express,{Request, Response} from "express";
 import cors from "cors";
 import "dotenv/config";
@@ -14,6 +13,10 @@ app.use(cors())
 
 app.get("/test", async (req: Request, res:Response ) => {
     res.json({message: "Hello!!!!!"});
+});
+
+app.get("/health", async (req:Request, res:Response)=>{
+    res.send({message: "health OK!"});
 });
 
 app.use("/api/my/user", myUserRoute)
